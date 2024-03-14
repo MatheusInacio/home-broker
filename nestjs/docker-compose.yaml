@@ -1,21 +1,30 @@
-version: '3'
+version: '3.7'
 services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
-      - .:/home/node/app
+      - .:/home/unix/home-broker
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   db:
+    # instead of using image bitnami/mongodb:5.0.17 (it's not working), this image builds a replicaset in its own Dockerfile
     build: ./mongo_rs
+    # image: prismagraphql/mongo-single-replica:5.0.3
+    # image:  bitnami/mongodb:5.0.17
+    # image: mongo:5.0.17
     restart: always
     environment:
+      # MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
       MONGO_REPLICA_HOST: db
+      # MONGODB_ROOT_PASSWORD: root
       # MONGODB_REPLICA_SET_MODE: primary
       # MONGODB_REPLICA_SET_KEY: 123456
       MONGODB_DATABASE: nest
+      # INIT_WAIT_SEC: 3
     volumes:
       - ./mongodb_data:/bitnami/mongodb
 
