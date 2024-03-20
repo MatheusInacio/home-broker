@@ -1,16 +1,5 @@
-import {
-  Body,
-  Controller,
-  Get,
-  MessageEvent,
-  Param,
-  Post,
-  Sse,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { WalletAssetsService } from './wallet-assets.service';
-import { Observable, map } from 'rxjs';
-
-// /wallets/
 
 @Controller('wallets/:wallet_id/assets')
 export class WalletAssetsController {

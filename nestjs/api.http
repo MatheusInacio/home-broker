@@ -5,7 +5,7 @@ POST http://localhost:3000/assets
 Content-Type: application/json
 
 {
-  "id": "TAEE11",
+  "id": "wallet1",
   "symbol": "TAEE11",
   "price": 35.6
 }
@@ -22,7 +22,7 @@ POST http://localhost:3000/wallets
 Content-Type: application/json
 
 {
-  "id": "wallet2"
+  "id": "wallet1"
 }
 
 ###

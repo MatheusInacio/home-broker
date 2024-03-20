@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma/prisma.service';
-import { Observable } from 'rxjs';
-import { WalletAsset } from '@prisma/client';
+
 @Injectable()
 export class WalletAssetsService {
   constructor(private prismaService: PrismaService) {}

@@ -32,6 +32,6 @@ volumes:
   mongodb_data:
     driver: local
 
-networks:
-  my-network:
-    external: true
+# networks:
+#   my-network:
+#     external: true
